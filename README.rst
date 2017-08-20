@@ -20,7 +20,7 @@ Electrum - Lightweight Bitcoin client
 Getting started
 ===============
 
-Electrum is a pure python application. If you want to use the
+Electrum-TES is a pure python application. If you want to use the
 Qt interface, install the Qt dependencies::
 
     sudo apt-get install python-qt4
@@ -28,11 +28,11 @@ Qt interface, install the Qt dependencies::
 If you downloaded the official package (tar.gz), you can run
 Electrum from its root directory, without installing it on your
 system; all the python dependencies are included in the 'packages'
-directory. To run Electrum from its root directory, just do::
+directory. To run Electrum-TES from its root directory, just do::
 
-    ./electrum
+    ./electrum-tes
 
-You can also install Electrum on your system, by running this command::
+You can also install Electrum-TES on your system, by running this command::
 
     python setup.py install
 
@@ -40,7 +40,7 @@ This will download and install the Python dependencies used by
 Electrum, instead of using the 'packages' directory.
 
 If you cloned the git repository, you need to compile extra files
-before you can run Electrum. Read the next section, "Development
+before you can run Electrum-TES. Read the next section, "Development
 Version".
 
 
@@ -50,7 +50,7 @@ Development version
 
 Check out the code from Github::
 
-    git clone git://github.com/spesmilo/electrum.git
+    git clone git://github.com/endlessloop2/electrum-test.git
     cd electrum
 
 Run install (this should install dependencies)::
