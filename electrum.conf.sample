@@ -3,8 +3,9 @@
 #
 # copy this file to /etc/electrum.conf if you want read-only settings
 
+# RPC 8005 TCP 50006 TCP SSL 50007
 [client]
-server = electrum.novit.ro:50001:t
+server = electrum-tes.endlessloop.me:50006
 proxy = None
 gap_limit = 5
 # booleans use python syntax
