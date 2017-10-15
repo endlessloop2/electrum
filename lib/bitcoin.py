@@ -39,19 +39,22 @@ import pyaes
 # Bitcoin network constants
 TESTNET = False
 NOLNET = False
-ADDRTYPE_P2PKH = 0
-ADDRTYPE_P2SH = 5
-ADDRTYPE_P2WPKH = 6
-XPRV_HEADER = 0x0488ade4
-XPUB_HEADER = 0x0488b21e
-HEADERS_URL = "https://headers.electrum.org/blockchain_headers"
+ADDRTYPE_P2PKH = 11 #https://github.com/TeslacoinFoundation/Teslacoin-v.3.3/blob/d8dc341be597a66dcd12313a262f2dd79866e2e5/src/base58.h#L279
+ADDRTYPE_P2SH = 8
+ADDRTYPE_P2WPKH = 6 # segwit. figure out how to remove. 
+XPRV_HEADER = 0x0488ade4 # wtf
+XPUB_HEADER = 0x0488b21e # same
+HEADERS_URL = "http://endlessloop.me/services/electrum-tes/blockchain_headers" # huh
 GENESIS = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
+
+SIGNEDMESSAGE = "Teslacoin Signed Message:\n" # https://github.com/TeslacoinFoundation/Teslacoin-v.3.3/blob/d8dc341be597a66dcd12313a262f2dd79866e2e5/src/main.cpp#L74
 
 def set_testnet():
     global ADDRTYPE_P2PKH, ADDRTYPE_P2SH, ADDRTYPE_P2WPKH
     global XPRV_HEADER, XPUB_HEADER
     global TESTNET, HEADERS_URL
     global GENESIS
+    global SIGNEDMESSAGE
     TESTNET = True
     ADDRTYPE_P2PKH = 111
     ADDRTYPE_P2SH = 196
@@ -66,9 +69,10 @@ def set_nolnet():
     global XPRV_HEADER, XPUB_HEADER
     global NOLNET, HEADERS_URL
     global GENESIS
+    global SIGNEDMESSAGE
     TESTNET = True
-    ADDRTYPE_P2PKH = 0
-    ADDRTYPE_P2SH = 5
+    ADDRTYPE_P2PKH = 11
+    ADDRTYPE_P2SH = 8
     ADDRTYPE_P2WPKH = 6
     XPRV_HEADER = 0x0488ade4
     XPUB_HEADER = 0x0488b21e
@@ -297,7 +301,6 @@ def public_key_to_p2wpkh(public_key):
 
 
 
-
 __b58chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 assert len(__b58chars) == 58
 
@@ -481,7 +484,7 @@ from ecdsa.util import string_to_number, number_to_string
 def msg_magic(message):
     varint = var_int(len(message))
     encoded_varint = "".join([chr(int(varint[i:i+2], 16)) for i in xrange(0, len(varint), 2)])
-    return "\x18Bitcoin Signed Message:\n" + encoded_varint + message
+    return SIGNEDMESSAGE + encoded_varint + message
 
 
 def verify_message(address, sig, message):
