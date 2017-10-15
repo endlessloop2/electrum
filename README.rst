@@ -9,12 +9,6 @@ Electrum-TES - Lightweight Teslacoin client
   Homepage: https://electrum.org/
 
 
-.. image:: https://travis-ci.org/spesmilo/electrum.svg?branch=master
-    :target: https://travis-ci.org/spesmilo/electrum
-    :alt: Build Status
-
-
-
 
 
 Getting started
