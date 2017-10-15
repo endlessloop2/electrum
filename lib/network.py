@@ -43,7 +43,7 @@ from interface import Connection, Interface
 import blockchain
 from version import ELECTRUM_VERSION, PROTOCOL_VERSION
 
-DEFAULT_PORTS = {'t':'50001', 's':'50002'}
+DEFAULT_PORTS = {'t':'50006', 's':'50007'}
 
 #There is a schedule to move the default list to e-x (electrumx) by Jan 2018
 #Schedule is as follows:
@@ -51,31 +51,12 @@ DEFAULT_PORTS = {'t':'50001', 's':'50002'}
 #then gradually switch remaining nodes to e-x nodes
 
 DEFAULT_SERVERS = {
-    'erbium1.sytes.net':DEFAULT_PORTS,                  # core, e-x
-    'ecdsa.net':{'t':'50001', 's':'110'},               # core, e-x
-    'gh05.geekhosters.com':DEFAULT_PORTS,               # core, e-s
-    'VPS.hsmiths.com':DEFAULT_PORTS,                    # core, e-x
-    'electrum.anduck.net':DEFAULT_PORTS,                # core, e-s; banner with version pending
-    'electrum.no-ip.org':DEFAULT_PORTS,                 # core, e-s
-    'electrum.be':DEFAULT_PORTS,                        # core, e-x
-    'helicarrier.bauerj.eu':DEFAULT_PORTS,              # core, e-x
-    'elex01.blackpole.online':DEFAULT_PORTS,            # core, e-x
-    'electrumx.not.fyi':DEFAULT_PORTS,                  # core, e-x
-    'node.xbt.eu':DEFAULT_PORTS,                        # core, e-x
-    'kirsche.emzy.de':DEFAULT_PORTS,                    # core, e-x
-    'electrum.villocq.com':DEFAULT_PORTS,               # core?, e-s; banner with version recommended
-    'us11.einfachmalnettsein.de':DEFAULT_PORTS,         # core, e-x
-    'electrum.trouth.net':DEFAULT_PORTS,                # BU, e-s
-    'Electrum.hsmiths.com':{'t':'8080', 's':'995'},     # core, e-x
-    'electrum3.hachre.de':DEFAULT_PORTS,                # core, e-x
-    'b.1209k.com':DEFAULT_PORTS,                        # XT, jelectrum
-    'elec.luggs.co':{ 's':'443'},                       # core, e-x
-    'btc.smsys.me':{'t':'110', 's':'995'},              # BU, e-x
+    'electrum-tes.endlessloop.me':DEFAULT_PORTS,                  # core, e-x
 }
 
 def set_testnet():
     global DEFAULT_PORTS, DEFAULT_SERVERS
-    DEFAULT_PORTS = {'t':'51001', 's':'51002'}
+    DEFAULT_PORTS = {'t':'51006', 's':'51007'}
     DEFAULT_SERVERS = {
         'testnetnode.arihanc.com': DEFAULT_PORTS,
         'testnet1.bauerj.eu': DEFAULT_PORTS,
